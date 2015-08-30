@@ -3,8 +3,13 @@
 
 This project extends the Volumio project, triggering a specific spotify playlist to play when a google calendar event occurs.
 
+# Requirements
+
+Google calendar API oAuth 2 client id (Type: Other) registered at console.developers.google.com, which has google calendar API enabled.
 
 # Setup
+
+Add your Google oAuth JSON file to the project root folder using as name client_secret.json
 
     $ sudo pip install -r requirements.txt
     $ wget http://sourceforge.net/projects/salix-sbo/files/13.37/pyfeed/pyfeed-0.7.4.tar.gz
