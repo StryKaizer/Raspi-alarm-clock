@@ -8,7 +8,7 @@ settings.read('config.ini')
 
 def play_music():
 
-    tn = telnetlib.Telnet(settings.get('Music', 'SPOP_TELNET_HOST'), settings.get('Music', '6602'))
+    tn = telnetlib.Telnet(settings.get('Music', 'SPOP_TELNET_HOST'), settings.get('Music', 'SPOP_TELNET_PORT'))
     tn.read_some()
 
     # Try to get the correct playlist
