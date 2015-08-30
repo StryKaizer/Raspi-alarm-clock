@@ -1,6 +1,7 @@
 # Raspi Alarm Clock
 
 This project extends the Volumio project (see https://volumio.org) , triggering a specific Spotify playlist to play when a Google calendar event occurs.
+
 This code was tested on a Raspi2 model, running Volumio 1.55
 
 ## Requirements
