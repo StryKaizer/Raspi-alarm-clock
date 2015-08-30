@@ -1,9 +1,8 @@
-# Raspi-alarm-clock
+# Raspi Alarm Clock
 
+This project extends the Volumio project (see https://volumio.org) , triggering a specific Spotify playlist to play when a Google calendar event occurs.
 
-This project extends the Volumio project, triggering a specific spotify playlist to play when a google calendar event occurs.
-
-# Requirements
+## Requirements
 
 Google calendar API oAuth 2 client id (Type: Other) registered at console.developers.google.com, which has google calendar API enabled.
 
