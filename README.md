@@ -28,13 +28,15 @@ You can now test if the script works by running
 
     $ python raspi_alarm_clock.py
 
-Now just add the following line as a cronjob to trigger the script each minute
+Now open cronjob configuration by running
 
     $ crontab -e
 
 Add this line at the end:
 
     */1 * * * * /usr/bin/python2.7 /home/pi/raspi-alarm/raspi_alarm_clock.py
+
+Your playlist will now fire every time a Google calendar event occurs.  Goodnight!
 
 ## Credits
 
