@@ -6,7 +6,7 @@ This project extends the Volumio project (see https://volumio.org) , triggering 
 
 Google calendar API oAuth 2 client id (Type: Other) registered at console.developers.google.com, which has google calendar API enabled.
 
-# Setup
+## Setup
 
 Add your Google oAuth JSON file to the project root folder using as name client_secret.json
 
@@ -34,3 +34,6 @@ Add this line at the end:
 
     */1 * * * * /usr/bin/python2.7 /home/pi/raspi-alarm/raspi_alarm_clock.py
 
+## Credits
+
+Created by StryKaizer
