@@ -6,7 +6,8 @@ This code was tested on a Raspi2 model, running Volumio 1.55
 
 ## Requirements
 
-Google calendar API oAuth 2 client id (Type: Other) registered at console.developers.google.com, which has google calendar API enabled.
+* Google calendar API oAuth 2 client id (Type: Other) registered at console.developers.google.com, which has google calendar API enabled.
+* A machine running Volumio
 
 ## Setup
 
