@@ -39,6 +39,14 @@ Add this line at the end:
 
     */1 * * * * /usr/bin/python2.7 /home/pi/raspi-alarm/raspi_alarm_clock.py
 
+Volumio turns off the cron daemon by default, so lets re-enable it by running:
+
+    $ sudo nano /etc/rc.local
+    
+Add before exit 0 following line:
+
+    /etc/init.d/cron/start
+
 Your playlist will now fire every time a Google calendar event occurs.  Goodnight!
 
 ## Credits
