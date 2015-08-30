@@ -19,7 +19,7 @@ Add your Google oAuth JSON file to the project root folder using as name client_
     $ cd pyfeed-0.7.4
     $ sudo python setup.py install
 
-Configure settings by editting the config.ini file
+Configure settings by editting the config.cfg file
 
 Authenticate with your google calendar by running following command, then copy/paste the url in a browser
 

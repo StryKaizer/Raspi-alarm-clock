@@ -1,12 +1,8 @@
 import telnetlib
 import json
-import ConfigParser
-
-settings = ConfigParser.ConfigParser()
-settings.read('config.ini')
 
 
-def play_music():
+def play_music(settings):
 
     tn = telnetlib.Telnet(settings.get('Music', 'SPOP_TELNET_HOST'), settings.get('Music', 'SPOP_TELNET_PORT'))
     tn.read_some()

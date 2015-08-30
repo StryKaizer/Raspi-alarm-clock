@@ -7,17 +7,16 @@ import oauth2client
 from oauth2client import client
 from oauth2client import tools
 import datetime
-import ConfigParser
+from ConfigParser import SafeConfigParser
 from players import spop_play
 
-settings = ConfigParser.ConfigParser()
-settings.read('config.ini')
+settings = SafeConfigParser()
+settings.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'config.cfg'))
+
 
 SCOPES = 'https://www.googleapis.com/auth/calendar.readonly'
 CLIENT_SECRET_FILE = 'client_secret.json'
 APPLICATION_NAME = 'Raspi Volumio Alarm Clock'
-
-
 
 
 try:
@@ -79,7 +78,7 @@ def main():
         print upcoming_event_start, event['summary']
         current_time = time.strftime('%d-%m-%Y %H:%M')
         if  upcoming_event_start == current_time:
-            spop_play.play_music()
+            spop_play.play_music(settings)
 
 
 if __name__ == '__main__':
