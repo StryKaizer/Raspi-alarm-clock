@@ -102,7 +102,6 @@ def main():
                 while fading_steps > 0:
                     time.sleep(seconds_per_step)
                     current_volume += step
-                    print current_volume
                     call(["mpc", "volume", str(current_volume)])
                     fading_steps -= 1
 
