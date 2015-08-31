@@ -9,6 +9,7 @@ from oauth2client import tools
 import datetime
 from ConfigParser import SafeConfigParser
 from players import spop_play
+from subprocess import call
 
 settings = SafeConfigParser()
 settings.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'config.cfg'))
@@ -78,7 +79,34 @@ def main():
         print upcoming_event_start, event['summary']
         current_time = time.strftime('%d-%m-%Y %H:%M')
         if  upcoming_event_start == current_time:
+
+            # Initial setup fading functionality
+            if settings.getboolean('Music', 'VOLUMIO_ENABLE_VOLUME_FADING'):
+                current_volume = settings.getint('Music', 'VOLUMIO_INITIAL_VOLUME')
+                end_volume = settings.getint('Music', 'VOLUMIO_ENDING_VOLUME')
+                fade_time = settings.getint('Music', 'VOLUMIO_VOLUME_FADING_SECONDS')
+                fading_steps = abs(end_volume - current_volume)
+                step = 1
+                if (end_volume < current_volume):
+                    step = -1
+                seconds_per_step = int(fade_time / fading_steps)
+
+                # Set initial volume
+                call(["mpc", "volume", str(current_volume)])
+
+            # Start playing
             spop_play.play_music(settings)
+
+            # Fade volume
+            if settings.getboolean('Music', 'VOLUMIO_ENABLE_VOLUME_FADING'):
+                while fading_steps > 0:
+                    time.sleep(seconds_per_step)
+                    current_volume += step
+                    print current_volume
+                    call(["mpc", "volume", str(current_volume)])
+                    fading_steps -= 1
+
+
 
 
 if __name__ == '__main__':
