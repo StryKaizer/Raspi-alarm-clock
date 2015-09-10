@@ -9,15 +9,19 @@ This code was tested on a Raspi2 model, running Volumio 1.55
 * Google calendar API oAuth 2 client id (Type: Other) registered at console.developers.google.com, which has google calendar API enabled.
 * A machine running Volumio
 
-## Setup
+## Installation
 
-Add your Google oAuth JSON file to the project root folder using as name client_secret.json
-
+    $ wget https://bootstrap.pypa.io/get-pip.py
+    $ sudo python get-pip.py
+    $ git clone https://github.com/StryKaizer/Raspi-alarm-clock.git
+    $ cd Raspi-alarm-clock
     $ sudo pip install -r requirements.txt
     $ wget http://sourceforge.net/projects/salix-sbo/files/13.37/pyfeed/pyfeed-0.7.4.tar.gz
     $ tar -zxvf pyfeed-0.7.4.tar.gz
     $ cd pyfeed-0.7.4
     $ sudo python setup.py install
+    
+Add your Google oAuth JSON file to the project root folder using as name client_secret.json
 
 Configure settings by editting the config.cfg file
 
