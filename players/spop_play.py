@@ -3,7 +3,6 @@ import json
 
 
 def play_music(settings):
-
     tn = telnetlib.Telnet(settings.get('Music', 'SPOP_TELNET_HOST'), settings.get('Music', 'SPOP_TELNET_PORT'))
     tn.read_some()
 
@@ -13,8 +12,8 @@ def play_music(settings):
         playlistinfo = tn.read_until("}]}")
         playlist_json = json.loads(playlistinfo)
         for playlist in playlist_json['playlists']:
-            if(playlist['name'] == settings.get('Music', 'SPOTIFY_PLAYLIST')):
-                playlist_index= playlist['index']
+            if (playlist['name'] == settings.get('Music', 'SPOTIFY_PLAYLIST')):
+                playlist_index = playlist['index']
     except:
         # Telnet error: lets use a hardcoded index
         playlist_index = 5
@@ -24,11 +23,10 @@ def play_music(settings):
         tn.write("status\n")
         status = tn.read_until("}")
         status_json = json.loads(status)
-        if(not status_json['shuffle'] == settings.getboolean('Music', 'SPOTIFY_SHUFFLE')):
+        if (not status_json['shuffle'] == settings.getboolean('Music', 'SPOTIFY_SHUFFLE')):
             tn.write("shuffle\n")
     except:
         pass
 
     # Start playlist
     tn.write("play " + str(playlist_index) + "\n")
-
