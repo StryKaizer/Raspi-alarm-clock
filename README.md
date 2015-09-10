@@ -41,7 +41,7 @@ Now open cronjob configuration by running
 
 Add this line at the end:
 
-    */1 * * * * /usr/bin/python2.7 /home/pi/raspi-alarm/raspi_alarm_clock.py
+    */1 * * * * /usr/bin/python2.7 /home/pi/Raspi-alarm-clock/raspi_alarm_clock.py
 
 Volumio kills the cron daemon by default, so lets comment out that line of code by running
 
