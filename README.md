@@ -49,10 +49,11 @@ Volumio kills the cron daemon by default, so lets comment out that line of code 
     
 Then find following line and add a # in front of it.
 
-    killall -9 ntpd
+    killall -9 cron
 
 
 Your playlist will now fire every time a Google calendar event occurs.  Goodnight!
+
 
 ## Credits
 
