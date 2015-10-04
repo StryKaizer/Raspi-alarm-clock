@@ -4,6 +4,7 @@ import json
 
 def play_music(settings):
     tn = telnetlib.Telnet(settings.get('Music', 'SPOP_TELNET_HOST'), settings.get('Music', 'SPOP_TELNET_PORT'))
+    playlist_to_trigger = unicode(settings.get('Music', 'SPOTIFY_PLAYLIST'), "utf-8")
     tn.read_some()
 
     # Try to get the correct playlist
@@ -12,7 +13,7 @@ def play_music(settings):
         playlistinfo = tn.read_until("}]}")
         playlist_json = json.loads(playlistinfo)
         for playlist in playlist_json['playlists']:
-            if (playlist['name'] == settings.get('Music', 'SPOTIFY_PLAYLIST')):
+            if playlist['name'] == playlist_to_trigger:
                 playlist_index = playlist['index']
     except:
         # Telnet error: lets use a hardcoded index
